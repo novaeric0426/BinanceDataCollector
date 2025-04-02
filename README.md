@@ -1,6 +1,8 @@
 # Binance 데이터 수집기
 
 바이낸스에서 실시간 암호화폐 시장 데이터를 수집, 저장 및 모니터링하는 고성능 시스템입니다.
+![image](https://github.com/user-attachments/assets/b1464ace-ff80-44d5-8968-4cf723d982a9)
+
 
 ## 개요
 
