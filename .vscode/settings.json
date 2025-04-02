@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ctime": "c",
+        "getopt.h": "c",
+        "stdlib.h": "c"
+    },
+}
