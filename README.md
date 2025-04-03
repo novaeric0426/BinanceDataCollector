@@ -21,6 +21,11 @@
 - 사용자 정의 가능한 디스플레이 옵션을 갖춘 실시간 모니터링 기능
 - 스레드 안전 설계
 
+## 도입 예정 기능
+레퍼런스
+https://arxiv.org/pdf/2309.04259 (C++ design patterns for low-latency applications including hft)
+- [ ] 링버퍼를 공유 메모리로 사용함으로써 Producer 및 Consumer 프로세스에서 각각 데이터 처리 가능한지 연구 필요 (LMAX Disruptor 디자인 참고)
+
 ## 요구 사항
 
 - Linux 기반 운영 체제
