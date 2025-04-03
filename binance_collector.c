@@ -111,7 +111,7 @@ void *stats_thread_func(void *arg) {
             uint64_t bytes_diff = bytes_processed - prev_bytes_processed[i];
             double mb_rate = (double)bytes_diff / (1024 * 1024) / LOG_INTERVAL_SEC;
             
-            printf("%-8s| %-11lu | %-11lu | %-12.2f | %-10.2f\n", 
+            printf("%-8s| %-11llu | %-11llu | %-12.2f | %-10.2f\n", 
                    symbols[i].name, trade_count, kline_count, msg_rate, mb_rate);
             
             prev_message_counts[i] = message_count;
@@ -120,7 +120,7 @@ void *stats_thread_func(void *arg) {
         
         // Print shared memory stats
         if (shm_header) {
-            printf("\nShared Memory: Write counter: %lu, Last update: %s", 
+            printf("\nShared Memory: Write counter: %llu, Last update: %s", 
                    atomic_load(&shm_header->write_counter),
                    ctime((time_t*)&shm_header->last_update_time));
             
@@ -447,7 +447,7 @@ int init_shared_memory() {
         shm_header->symbols[i][MAX_SYMBOL_LENGTH - 1] = '\0';
     }
     
-    printf("Shared memory initialized at /binance_market_data (%zu MB, %zu MB per symbol)\n", 
+    printf("Shared memory initialized at /binance_market_data (%d MB, %zu MB per symbol)\n", 
            SHM_SIZE / (1024 * 1024), shm_header->buffer_size / (1024 * 1024));
     
     return 0;

@@ -66,7 +66,7 @@ void print_formatted_time(int64_t timestamp) {
     
     char buffer[26];
     strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
-    printf("%s.%03ld", buffer, timestamp % 1000);
+    printf("%s.%03lld", buffer, timestamp % 1000);
 }
 
 /**
@@ -82,7 +82,7 @@ void print_shared_memory_info() {
     printf("=== Binance Market Data Shared Memory ===\n");
     printf("Last update: %s", ctime(&last_update));
     printf("Time since last update: %d seconds\n", seconds_since_update);
-    printf("Write counter: %lu\n", atomic_load(&shm_header->write_counter));
+    printf("Write counter: %llu\n", atomic_load(&shm_header->write_counter));
     printf("Symbol count: %zu\n", shm_header->symbol_count);
     printf("Symbols: ");
     
@@ -194,7 +194,7 @@ void display_symbol_data(const char *symbol) {
             print_formatted_time(trade->trade_time);
             printf(", Event time: ");
             print_formatted_time(trade->event_time);
-            printf("\n        Price: %.8f, Qty: %.8f, TradeID: %ld, BuyerMaker: %d\n",
+            printf("\n        Price: %.8f, Qty: %.8f, TradeID: %lld, BuyerMaker: %d\n",
                   trade->price, trade->quantity, trade->trade_id, trade->is_buyer_maker);
             
             offset += header->length;
@@ -213,7 +213,7 @@ void display_symbol_data(const char *symbol) {
             print_formatted_time(kline->open_time);
             printf(", Close time: ");
             print_formatted_time(kline->close_time);
-            printf("\n        OHLC: %.8f, %.8f, %.8f, %.8f, Vol: %.8f, Trades: %ld, Final: %d\n",
+            printf("\n        OHLC: %.8f, %.8f, %.8f, %.8f, Vol: %.8f, Trades: %lld, Final: %d\n",
                   kline->open_price, kline->high_price, kline->low_price, kline->close_price,
                   kline->volume, kline->num_trades, kline->is_final);
             
