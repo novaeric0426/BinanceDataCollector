@@ -54,7 +54,7 @@ sudo dnf install gcc make libwebsockets-devel json-c-devel
 git clone https://github.com/novaeric0426/BinanceDataCollector.git
 
 # 애플리케이션 컴파일
-gcc -o binance_data_collector binance_data_collector.c -lrt -lpthread -lwebsockets -ljson-c
+gcc -o binance__collector binance_collector.c -lrt -lpthread -lwebsockets -ljson-c
 gcc -o binance_shared_memory_reader binance_shared_memory_reader.c -lrt -lpthread
 ```
 
